@@ -1,7 +1,41 @@
-// Factory_Workers.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+//Thomas Cubsyead
+//4/21/25
+//Factory_Workers
+//Main
 
 #include <iostream>
+#include <string>
+using namespace std;
+
+class employee {
+protected:
+    string name;
+    string employeeNum;
+    string hireDate;
+
+public:
+    //constructor
+    Employee(string n = "", string eNum = "", string hireTime = "")
+        : name(n), employeeNum(eNum), hireDate(hireTime) {}
+
+    //accessors
+    string getName() const { return name; }
+    string getEmployeeNum() const { return employeeNum; }
+    string getHireDate() const { hireDate; }
+
+    //mutators
+    void setName(string n) { name = n; }
+    void setEmployeeNum(string num) { employeeNum = num; } 
+    void setHireDate(string date) { hireDate = date; }
+
+    //function prints employee information
+    void printEmployee() const {
+        cout << "Name: " << name << endl;
+        cout << "Employee Number: " << employeeNum << endl;
+        cout << "Hire Date: " << hireDate << endl;
+    }
+};
+
 
 int main()
 {
