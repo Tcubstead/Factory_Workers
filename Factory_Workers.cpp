@@ -1,7 +1,7 @@
 //Thomas Cubsyead
 //4/21/25
 //Factory_Workers
-//Main
+//Master
 
 #include <iostream>
 #include <string>
@@ -61,6 +61,34 @@ public:
         cout << "Hourly Pay Rate: $" << hourlyPayRate << endl;
     }
 };
+
+class Shiftupervisor : public Employee {
+protected:
+    double annualSalary;
+    double annualBonus;
+
+public:
+    //constructor
+    ShiftSupervisor(string n = "", string num = "", string date = "", double salary = 0.0, double bonus = 0.0)
+        : Employee(n, num, date), annualSalary(salary), annualBonus(bonus) {}
+
+    //accessors
+    double getAnnualSalary() const { return annualSalary; }
+    double getAnnualBonus() const { return annualBonus; }
+
+    //mutators
+    void setAnnualSalary(double salary) { annualSalary = salary; }
+    void setAnnualBonus(double bonus) { annualBonus = bonus; }
+
+    //funtion that prints the information of the shift supervisor
+    void printSupervisor() const {
+        printEmployee();
+        cout << "Annual Salary: $" << annualSalary << endl;
+        cout << "Annual Bonus: $" << annualBonus << endl;
+    }
+};
+
+
 
 
 int main()
