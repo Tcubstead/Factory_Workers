@@ -88,7 +88,35 @@ public:
     }
 };
 
+class TeamLeader : public ProductionWorker {
+private:
+    double monthlyBonus;
+    int requiredTrainingHours;
+    int attendedTrainingHours;
 
+public:
+    //constructor
+    TeamLeader(string n = "", string num = "", string date = "", int s = 1, double pay = 0.0, double bonus = 0.0, int rHours = 0, int aHours = 0)
+        : ProductionWorker(n, num, date, s, pay), monthlyBonus(bonus), requiredTrainingHours(rHours), attendedTrainingHours(aHours) {}
+
+    //accessors
+    double getMonthlyBonus() const { return monthlyBonus; }
+    int  getRequiredTrainingHours() const { return requiredTrainingHours; }
+    int getAttendedTrainingHours() const { return attendedTrainingHours; }
+
+    //mutators
+    void setMonthlyBonus(double bonus) { monthlyBonus = bonus; }
+    void setRequiredTrainingHours(int hours) { requiredTrainingHours = hours; }
+    void setAttendedTrainingHours(int hours) { attendedTrainingHours = hours; }
+
+    //function that prints the information of the shift supervisor
+    void printTeamLeader() const {
+        printProductionWorker();
+        cout << "Monthly Bonus: $" << monthlyBonus << endl;
+        cout << "Required Training Hours: " << requiredTrainingHours << endl;
+        cout << "Attended Training Hours: " << attendedTrainingHours << endl;
+    }
+};
 
 
 int main()
