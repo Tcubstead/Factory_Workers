@@ -7,7 +7,7 @@
 #include <string>
 using namespace std;
 
-class employee {
+class Employee {
 protected:
     string name;
     string employeeNum;
@@ -33,6 +33,32 @@ public:
         cout << "Name: " << name << endl;
         cout << "Employee Number: " << employeeNum << endl;
         cout << "Hire Date: " << hireDate << endl;
+    }
+};
+
+class ProductionWorker : public Employee {
+protected:
+    int shift;
+    double hourlyPayRate;
+
+public:
+    //constructor
+    ProductionWorker(string n = "", string num = "", string date = "", int s = 1, double pay = 0.0)
+        : Employee(n, num, date), shift(s), hourlyPayRate(pay) {}
+
+    //accessors
+    int getShift() const { return shift; }
+    double getHourlyPayRate() const { return hourlyPayRate; }
+
+    //Mutators
+    void setShift(int s) { shift = s; }
+    void setHourlyPayRate(double pay) { hourlyPayRate = pay; }
+
+    //function to print the worker information
+    void printProductionWorker() const {
+        printEmployee();
+        cout << "Shift: " << (shift == 1 ? "Day" : "Night") << endl;
+        cout << "Hourly Pay Rate: $" << hourlyPayRate << endl;
     }
 };
 
