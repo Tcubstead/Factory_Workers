@@ -2,6 +2,7 @@
 //4/21/25
 //Factory_Workers
 //Master
+//This program uses separate classes to define different types of employees and shares their information within a hierarchy of command
 
 #include <iostream>
 #include <string>
@@ -62,7 +63,7 @@ public:
     }
 };
 
-class Shiftupervisor : public Employee {
+class ShiftSupervisor : public Employee {
 protected:
     double annualSalary;
     double annualBonus;
@@ -119,9 +120,26 @@ public:
 };
 
 
-int main()
-{
-    std::cout << "Hello World!\n";
+int main() {
+    //ProductionWorker test case
+    ProductionWorker pw1("Sally", "123-A", "2000-01-10", 1, 22.50);
+    ProductionWorker pw2("Steve", "456-B", "2015-05-12", 2, 32.25);
+    cout << "=== Production Worker 1 ===" << endl;
+    pw1.printProductionWorker();
+    cout << "\n=== Productions Worker 2 ===" << endl;
+    pw2.printProductionWorker();
+
+    //ShiftSupervisor test case
+    ShiftSupervisor supervisor("James", "789-C", "1994-09-17", 74000, 4000);
+    cout << "\n=== Shift Supervisor ===" << endl;
+    supervisor.printSupervisor();
+
+    //Team leader test case
+    TeamLeader teamLeader("Robin", "951-D", "2002-11-24", 1, 34.15, 1200, 35, 30);
+    cout << "\n=== Team Leader ===" << endl;
+    teamLeader.printTeamLeader();
+
+    return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
